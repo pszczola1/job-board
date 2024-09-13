@@ -146,5 +146,5 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-CRISPY_ALLOWED_TEMPLATE_PACK = ('uni_form', 'bootstrap3', 'bootstrap4', 'bootstrap5')
+CRISPY_ALLOWED_TEMPLATE_PACK = ('uni_form', 'bootstrap3', 'bootstrap4')
 CRISPY_TEMPLATE_PACK = "bootstrap4"
