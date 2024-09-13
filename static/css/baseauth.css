@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+}
+
+.requiredField {
+    color: var(--bright-text)
+}
+
+#hint_id_password1, #hint_id_password2{
+    color: tomato;
+}

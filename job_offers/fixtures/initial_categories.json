@@ -1,0 +1,12 @@
+[
+    {"model": "job_offers.Category", "pk": 1, "fields": {"name": "Banking"}},
+    {"model": "job_offers.Category", "pk": 2, "fields": {"name": "Education"}},
+    {"model": "job_offers.Category", "pk": 3, "fields": {"name": "IT"}},
+    {"model": "job_offers.Category", "pk": 4, "fields": {"name": "Law"}},
+    {"model": "job_offers.Category", "pk": 5, "fields": {"name": "Sales"}},
+    {"model": "job_offers.Category", "pk": 6, "fields": {"name": "Real Estate"}},
+    {"model": "job_offers.Category", "pk": 7, "fields": {"name": "Human Resouroces"}},
+    {"model": "job_offers.Category", "pk": 8, "fields": {"name": "Logistics"}},
+    {"model": "job_offers.Category", "pk": 9, "fields": {"name": "Customer Service"}},
+    {"model": "job_offers.Category", "pk": 10, "fields": {"name": "Art"}}
+]
