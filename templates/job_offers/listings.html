@@ -1,4 +1,8 @@
 {% extends "core/baseapp.html" %}
+{% load static %}
+{% block head %}
+    <script src="{% static "js/listings.js" %}"></script>
+{% endblock head %}
 {% block content %}
     <div class="listings"></div>
 {% endblock content %}
