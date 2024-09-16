@@ -149,3 +149,9 @@ LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_ALLOWED_TEMPLATE_PACK = ('uni_form', 'bootstrap3', 'bootstrap4')
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
