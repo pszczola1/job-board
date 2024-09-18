@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.serializers import serialize
 from .forms import JobListingCreationForm
+from .models import JobListing
 
 # Create your views here.
 
@@ -18,5 +20,6 @@ def create_listing(request):
 def listings(request):
     return render(request, "job_offers/listings.html")
 
-def listing(request, id):
-    return render(request, "job_offers/listing.html")
+def listing(request, pk):
+    listing_obj = JobListing.objects.get(pk=pk)
+    return render(request, "job_offers/listing.html", {"listing": listing_obj})

@@ -1,11 +1,17 @@
 {% extends "core/baseapp.html" %}
 {% load static %}
 {% block head %}
-    
+    {{listing.media}}
 {% endblock head %}
 {% block content %}
     <div class="content-wrapper">
-        <div class="listing-head-wrapper"></div>
-        <div class="listing-body-wrapper"></div>
+        <div class="listing-head-wrapper">
+            {{listing.title}}
+            {{listing.categories.all}}
+        </div>
+        <div class="listing-body-wrapper">
+            {{ listing.description.html|safe }}
+            {{ listing.offered_pay }}
+        </div>
     </div>
 {% endblock content %}
