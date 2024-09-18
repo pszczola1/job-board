@@ -6,6 +6,9 @@ from .models import JobListing
 
 # Create your views here.
 
+def home(request):
+    return render(request, "core/home.html")
+
 def create_listing(request):
     if request.method == "POST":
         form = JobListingCreationForm(request.POST)

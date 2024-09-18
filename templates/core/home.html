@@ -1,0 +1,15 @@
+{% extends "core/baseapp.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock head %}
+{% block content %}
+    <div class="main">
+        <div class="title-wrapper">
+            <span class="title-span">Find a job with Job Board</span>
+        </div>
+        <div class="btn-wrapper">
+            <a href="/listings" class="btn">Look at listings</a>
+        </div>
+    </div>
+{% endblock content %}
