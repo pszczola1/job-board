@@ -21,8 +21,9 @@
 <div class="content">
     <div class="up-bar">
         {% comment %} left side {% endcomment %}
-        <div class="home-btn-wrapper"></div>
-
+        <div class="home-btn-wrapper">
+            <a href="/" class="home-btn">Home</a>
+        </div>
         {% comment %} right side {% endcomment %}
         <div class="auth-wrapper">
             {% if user.is_authenticated %}

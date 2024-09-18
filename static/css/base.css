@@ -38,3 +38,15 @@ body {
     height: 5vh;
     align-content: center;
 }
+
+.home-btn-wrapper {
+    float: left;
+    align-content: center;
+    height: inherit;
+    margin-left: 10px;
+}
+
+.home-btn {
+    color: var(--link-color);
+    text-decoration: none;
+}
