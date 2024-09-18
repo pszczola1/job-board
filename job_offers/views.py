@@ -19,4 +19,4 @@ def listings(request):
     return render(request, "job_offers/listings.html")
 
 def listing(request, id):
-    ...
+    return render(request, "job_offers/listing.html")
