@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'users',
-    'core',
     'chat',
     'job_offers',
     'api'
