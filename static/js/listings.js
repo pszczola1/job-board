@@ -1,6 +1,9 @@
 const fetchListings = async () => {
-    const pageNumber = (new URLSearchParams(window.location.search)).get("page")
+    let pageNumber = (new URLSearchParams(window.location.search)).get("page")
     
+    let testNumRegex = /^\d+$/m
+    if(!testNumRegex.test(pageNumber)) pageNumber = 1
+     
     const response = await fetch(`${window.location.origin}/api/v1/listings/?page=${pageNumber}`)
     const listings = await response.json()
     return listings   
