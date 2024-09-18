@@ -19,4 +19,7 @@ class ListingsViewset(viewsets.ModelViewSet):
     #     if page is not None:
     #         serializer = ListingsGetPageSerializer(queryset, many=True)
     #         return self.get_paginated_response(serializer.data)
+
+class ListingViewset(viewsets.ModelViewSet):
+    ...
         
