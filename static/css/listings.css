@@ -1,0 +1,33 @@
+.listings {
+    width: 100vw;
+    height: 80vh;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    max-width: 2000px;
+    width: 100%;
+    border: 1px solid var(--muted-background-active);
+    border-radius: var(--roundness);
+    margin-bottom: 5px;
+}
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: space-around;
+}
+
+.title-span {
+    font-size: larger;
+}
+
+.salary-span, .categories-span {
+    color: var(--secondary-text);
+}
