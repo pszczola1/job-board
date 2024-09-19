@@ -34,7 +34,7 @@ class JobListing(models.Model):
     categories = models.ManyToManyField(Category)
     #listing_image = models.ImageField(verbose_name="listing_image")
     description = QuillField(verbose_name="description")
-    offered_pay = models.CharField(max_length=31)
+    salary = models.IntegerField(verbose_name="salary", default=5000)
 
     def __str__(self) -> str:
         #format: title(up to ten characters) and the id of the object in []

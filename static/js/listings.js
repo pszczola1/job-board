@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         let salarySpan = document.createElement('span')
         salarySpan.classList.add('salary-span')
-        salarySpan.innerText = listing.offered_pay
+        salarySpan.innerText = listing.salary
 
         textWrapper.appendChild(titleSpan)
         textWrapper.appendChild(salarySpan)
