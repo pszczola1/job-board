@@ -17,17 +17,39 @@ window.addEventListener("DOMContentLoaded", async () => {
         //console.log(listing)
         let listingWrapper = document.createElement('div')
         listingWrapper.classList.add('listing')
-        const title = listing.title
+
+        let imgWrapper = document.createElement('div')
+        imgWrapper.classList.add('image-wrapper')
+        //let img = new Image() //TODO
+        //imgWrapper.appendChild(img)
+
+        let textWrapper = document.createElement('div')
+        textWrapper.classList.add('text-wrapper')
+
         let categories = []
         for (const category of listing.categories) {
             categories.push(category.name)
         }
-        const offeredPay = listing.offered_pay
-        let listingAnchorTag = document.createElement('a')
-        listingAnchorTag.href = `${window.location.origin}/listing/${listing.pk}`
-        listingAnchorTag.innerText = `${title} ${categories} ${offeredPay}`
+        let titleSpan = document.createElement('span')
+        titleSpan.classList.add('title-span')
+        titleSpan.innerText = listing.title
 
-        listingWrapper.appendChild(listingAnchorTag)
-        listingsDiv.appendChild(listingWrapper)
+        let categoriesSpan = document.createElement('span')
+        categoriesSpan.classList.add('categories-span')
+        categoriesSpan.innerText = "Categories: " + categories.toString()
+
+        let salarySpan = document.createElement('span')
+        salarySpan.classList.add('salary-span')
+        salarySpan.innerText = listing.offered_pay
+
+        textWrapper.appendChild(titleSpan)
+        textWrapper.appendChild(salarySpan)
+        textWrapper.appendChild(categoriesSpan)
+
+        listingsDiv.appendChild(imgWrapper)
+        listingsDiv.appendChild(textWrapper)
+        listingsDiv.addEventListener("click", () => {
+            window.location.href = window.location.origin + "/listing/" + listing.pk
+        })
     }
 })
