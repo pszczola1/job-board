@@ -10,10 +10,9 @@ const fetchListings = async () => {
 }
 
 
-window.addEventListener("DOMContentLoaded", async () => {
-    response = await fetchListings()
+const buildPage = (listings) => { 
     const listingsDiv = document.querySelector('.listings')
-    for (const listing of response.results) {
+    for (const listing of listings) {
         //console.log(listing)
         let listingWrapper = document.createElement('div')
         listingWrapper.classList.add('listing')
@@ -53,4 +52,12 @@ window.addEventListener("DOMContentLoaded", async () => {
         })
         listingsDiv.appendChild(listingWrapper)
     }
-})
+}
+
+
+const main = async () => {
+    const response = await fetchListings()
+    buildPage(response.results)
+}
+
+window.addEventListener("DOMContentLoaded", main)
