@@ -29,6 +29,7 @@ body {
 }
 
 .profile-wrapper, .auth-wrapper {
+    margin-right: 10px;
     float: right;
     height: 5vh;
     color: var(--bright-text);
