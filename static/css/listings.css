@@ -14,7 +14,8 @@
     width: 100%;
     border: 1px solid var(--muted-background-active);
     border-radius: var(--roundness);
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .text-wrapper {
