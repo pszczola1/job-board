@@ -46,10 +46,11 @@ window.addEventListener("DOMContentLoaded", async () => {
         textWrapper.appendChild(salarySpan)
         textWrapper.appendChild(categoriesSpan)
 
-        listingsDiv.appendChild(imgWrapper)
-        listingsDiv.appendChild(textWrapper)
-        listingsDiv.addEventListener("click", () => {
+        listingWrapper.appendChild(imgWrapper)
+        listingWrapper.appendChild(textWrapper)
+        listingWrapper.addEventListener("click", () => {
             window.location.href = window.location.origin + "/listing/" + listing.pk
         })
+        listingsDiv.appendChild(listingWrapper)
     }
 })
