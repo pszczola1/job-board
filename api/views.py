@@ -12,14 +12,21 @@ class ListingsViewset(viewsets.ModelViewSet):
     serializer_class = ListingsGetPageSerializer
     queryset = JobListing.objects.all()
 
-    # @action(methods=['get'], detail=False)
-    # def get_page(self, request):
-    #     queryset = JobListing.objects.all()
-    #     page = self.paginate_queryset(queryset)
-    #     if page is not None:
-    #         serializer = ListingsGetPageSerializer(queryset, many=True)
-    #         return self.get_paginated_response(serializer.data)
+    def get_queryset(self):
+        queryset = JobListing.objects.all()
+        
+        title = self.request.query_params.get('title')
+        categories = self.request.query_params.getlist('categories')
+        salary = self.request.query_params.get('salary')
 
-class ListingViewset(viewsets.ModelViewSet):
-    ...
+        if title:
+            queryset = queryset.filter(title__icontains=title)  #icontains - not case sensitive
+        if categories:
+            for category in categories:
+                queryset = queryset.filter(categories__in=category)
+        if salary:
+            queryset = queryset.filter(salary__gt=salary-1)
+
+        print(queryset)
+        return queryset
         
