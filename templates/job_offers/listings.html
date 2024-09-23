@@ -1,5 +1,6 @@
 {% extends "core/baseapp.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block head %}
     <link rel="stylesheet" href="{% static "css/listings.css" %}">
     <script src="{% static "js/listings.js" %}"></script>
@@ -7,7 +8,13 @@
 {% block content %}
 <div class="listings-main">
     <div class="filter">
-
+        <span class="filter-title">Filters:</span>
+        <div class="filters">
+            <form class="filter-form">
+                {{form}}
+                <button type="submit" class="filter-submit-btn">Filter</button>
+            </form>
+        </div>
     </div>
     <div class="listings"></div>
 </div>
