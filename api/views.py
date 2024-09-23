@@ -25,7 +25,7 @@ class ListingsViewset(viewsets.ModelViewSet):
             for category in categories:
                 queryset = queryset.filter(categories__in=category)
         if salary:
-            queryset = queryset.filter(salary__gt=salary-1)
+            queryset = queryset.filter(salary__gt=int(salary)-1)
 
         print(queryset)
         return queryset
