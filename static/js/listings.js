@@ -1,15 +1,11 @@
 let pageNumber = 1
 
-const fetchListings = async (isInitial=false, filters=[]) => {
-    let response
-    if(isInitial) response = await fetch(`${window.location.origin}/api/v1/listings/?page=${pageNumber}`)
-    else {
-        let apiUrl = `${window.location.origin}/api/v1/listings/?page=${pageNumber}`
-        for (const filter of filters) {
-            apiUrl += `&${filter[0]}=${filter[1]}`
-        }
-        response = await fetch(apiUrl)
+const fetchListings = async (filters=[]) => {
+    let apiUrl = `${window.location.origin}/api/v1/listings/?page=${pageNumber}`
+    for (const filter of filters) {
+        apiUrl += `&${filter[0]}=${filter[1]}`
     }
+    const response = await fetch(apiUrl)
     return response.json()
 }
 
