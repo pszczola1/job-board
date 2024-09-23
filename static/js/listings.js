@@ -1,8 +1,6 @@
-const fetchListings = async (isInitial=false, filters=[]) => {
-    let pageNumber = (new URLSearchParams(window.location.search)).get("page")
-    let testNumRegex = /^\d+$/m
-    if(!testNumRegex.test(pageNumber)) pageNumber = 1
+let pageNumber = 1
 
+const fetchListings = async (isInitial=false, filters=[]) => {
     let response
     if(isInitial) response = await fetch(`${window.location.origin}/api/v1/listings/?page=${pageNumber}`)
     else {
