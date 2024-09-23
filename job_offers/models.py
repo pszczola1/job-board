@@ -36,6 +36,22 @@ class JobListing(models.Model):
     description = QuillField(verbose_name="description")
     salary = models.IntegerField(verbose_name="salary", default=5000)
 
+    location = models.CharField(max_length=511, null=True, blank=False)
+
+    class EmploymentType(models.TextChoices):
+        FULL_TIME = 'FT', 'Full-time'
+        PART_TIME = 'PT', 'Part-time'
+
+    employment_type = models.CharField(max_length=2, choices=EmploymentType.choices, default=EmploymentType.FULL_TIME)
+
+    class WorkModel(models.TextChoices):
+        ONSITE = "OS", "On-Site"
+        HYBRID = "HB", "Hybrid"
+        REMOTE = "RM", "Remote"
+
+    work_model = models.CharField(max_length=2, choices=WorkModel.choices, default=WorkModel.ONSITE)
+
+
     def __str__(self) -> str:
         #format: title(up to ten characters) and the id of the object in []
         text = (f"{self.title[:10]}..." if len(self.title) > 10 else f"{self.title[:10]}") + f" [{self.pk}]" 
