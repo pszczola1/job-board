@@ -36,7 +36,7 @@ class JobListing(models.Model):
     description = QuillField(verbose_name="description")
     salary = models.IntegerField(verbose_name="salary", default=5000)
 
-    location = models.CharField(max_length=511, null=True, blank=False)
+    location = models.CharField(max_length=511, null=True, blank=True)
 
     class EmploymentType(models.TextChoices):
         FULL_TIME = 'FT', 'Full-time'
