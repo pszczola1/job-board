@@ -61,7 +61,7 @@ const clearPage = () => {
 
 
 const main = async () => {
-    const response = await fetchListings(isInitial=true)
+    const response = await fetchListings()
     buildPage(response.results)
     const filterBtn = document.querySelector(".filter-submit-btn")
     filterBtn.addEventListener("click", handleFilterBtn)
@@ -75,7 +75,7 @@ const handleFilterBtn = async (e) => {
         if(element[1] == "") continue
         filters.push([element[0], element[1]])
     }
-    const response = await fetchListings(isInitial=false, filters=filters)
+    const response = await fetchListings(filters=filters)
     clearPage()
     buildPage(response.results)
 }
