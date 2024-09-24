@@ -67,6 +67,12 @@ const init = async () => {
     filterBtn.addEventListener("click", handleFilterBtn)
 }
 
+const handleFilter = async (filters) => {
+    const response = await fetchListings(filters=filters)
+    clearPage()
+    buildPage(response.results)
+}
+
 const handleFilterBtn = async (e) => {
     e.preventDefault()
     const formData = getFilterFormData()
@@ -75,9 +81,7 @@ const handleFilterBtn = async (e) => {
         if(element[1] == "") continue
         filters.push([element[0], element[1]])
     }
-    const response = await fetchListings(filters=filters)
-    clearPage()
-    buildPage(response.results)
+    handleFilter(filters)
 }
 
 const getFilterFormData = () => {
