@@ -13,6 +13,7 @@ class JobListingFilterForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs): # all fields are required by default
         super().__init__(*args, **kwargs)
+        self.fields['salary'].initial = 0
         for field in self.fields.values():
             field.required = False
 
