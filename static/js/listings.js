@@ -60,7 +60,7 @@ const clearPage = () => {
 }
 
 
-const main = async () => {
+const init = async () => {
     const response = await fetchListings()
     buildPage(response.results)
     const filterBtn = document.querySelector(".filter-submit-btn")
@@ -86,4 +86,4 @@ const getFilterFormData = () => {
     return formData
 }
 
-window.addEventListener("DOMContentLoaded", main)
+window.addEventListener("DOMContentLoaded", init)
