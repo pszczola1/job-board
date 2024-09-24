@@ -1,6 +1,6 @@
 .listings {
-    width: 100vw;
-    height: 80vh;
+    flex-basis: 70%;
+    min-height: 80vh;
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 15px;
@@ -35,10 +35,18 @@
 .filter {
     width: 20%;
     min-width: 150px;
-    height: 50vh;
+    min-height: 80vh;
 }
 
 .listings-main {
     display: flex;
     width: inherit;
+    flex-wrap: wrap;
+}
+
+.change-page-btns {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
 }
