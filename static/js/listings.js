@@ -1,10 +1,12 @@
 let pageNumber = 1
 
-const fetchListings = async (filters=[]) => {
-    let apiUrl = `${window.location.origin}/api/v1/listings/?page=${pageNumber}`
+const fetchListings = async (filters=[], apiUrl=null) => {
+    if(!apiUrl) apiUrl = `${window.location.origin}/api/v1/listings/?page=${pageNumber}`
     for (const filter of filters) {
         apiUrl += `&${filter[0]}=${filter[1]}`
     }
+    console.log(filters, apiUrl);
+    
     const response = await fetch(apiUrl)
     return response.json()
 }
@@ -57,20 +59,28 @@ const buildPage = (listings) => {
 const clearPage = () => {
     const listingsWrapper = document.querySelector(".listings")
     listingsWrapper.innerHTML = ""
+    const pageBtns = document.querySelector(".change-page-btns")
+    pageBtns.innerHTML = ""
 }
 
 
 const init = async () => {
     const response = await fetchListings()
+    console.log(response);
+    
     buildPage(response.results)
+    buildPageBtns(response.previous, response.next)
     const filterBtn = document.querySelector(".filter-submit-btn")
     filterBtn.addEventListener("click", handleFilterBtn)
 }
 
+window.addEventListener("DOMContentLoaded", init)
+
 const handleFilter = async (filters) => {
-    const response = await fetchListings(filters=filters)
+    const response = await fetchListings(filters=filters)  
     clearPage()
     buildPage(response.results)
+    buildPageBtns(response.previous, response.next)
 }
 
 const handleFilterBtn = async (e) => {
@@ -90,4 +100,27 @@ const getFilterFormData = () => {
     return formData
 }
 
-window.addEventListener("DOMContentLoaded", init)
+const buildPageBtns = (previous, next) => {
+    const btnsDiv = document.querySelector(".change-page-btns")
+    if (previous) {
+        const previousBtn = document.createElement("button")
+        previousBtn.innerText = "<"
+        previousBtn.addEventListener("click", () => {handlePageChange(previous)})
+        btnsDiv.appendChild(previousBtn)
+    }
+
+    if (next) {
+        const nextBtn = document.createElement("button")
+        nextBtn.innerText = ">"
+        nextBtn.addEventListener("click", () => {handlePageChange(next)})
+        btnsDiv.appendChild(nextBtn)
+    }
+
+}
+
+const handlePageChange = async (apiUrl) => {
+    const response = await fetchListings(filters=[], apiUrl=apiUrl)
+    clearPage()
+    buildPage(response.results)
+    buildPageBtns(response.previous, response.next)
+}
