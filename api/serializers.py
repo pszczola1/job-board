@@ -10,4 +10,4 @@ class ListingsGetPageSerializer(serializers.ModelSerializer):
     categories = CategoryPKToNameSerializer(many=True)
     class Meta:
         model = JobListing
-        fields = ('pk', 'title', 'categories', 'salary')
+        fields = ('pk', 'title', 'categories', 'salary', 'location', 'employment_type', 'work_model')
